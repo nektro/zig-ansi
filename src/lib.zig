@@ -65,20 +65,20 @@ fn arr_i_to_s(x: anytype) [][]const u8 {
 }
 
 pub const csi = struct {
-    fn CursorUp(n: i32) []const u8 { return make_csi_sequence("A", .{n}); }
-    fn CursorDown(n: i32) []const u8 { return make_csi_sequence("B", .{n}); }
-    fn CursorForward(n: i32) []const u8 { return make_csi_sequence("C", .{n}); }
-    fn CursorBack(n: i32) []const u8 { return make_csi_sequence("D", .{n}); }
-    fn CursorNextLine(n: i32) []const u8 { return make_csi_sequence("E", .{n}); }
-    fn CursorPrevLine(n: i32) []const u8 { return make_csi_sequence("F", .{n}); }
-    fn CursorHorzAbs(n: i32) []const u8 { return make_csi_sequence("G", .{n}); }
-    fn CursorPos(n: i32, m: i32) []const u8 { return make_csi_sequence("H", .{n, m}); }
-    fn EraseInDisplay(n: i32) []const u8 { return make_csi_sequence("J", .{n}); }
-    fn EraseInLine(n: i32) []const u8 { return make_csi_sequence("K", .{n}); }
-    fn ScrollUp(n: i32) []const u8 { return make_csi_sequence("S", .{n}); }
-    fn ScrollDown(n: i32) []const u8 { return make_csi_sequence("T", .{n}); }
-    fn HorzVertPos(n: i32, m: i32) []const u8 { return make_csi_sequence("f", .{n, m}); }
-    fn SGR(ns: anytype) []const u8 { return make_csi_sequence("m", ns); }
+    pub fn CursorUp(n: i32) []const u8 { return make_csi_sequence("A", .{n}); }
+    pub fn CursorDown(n: i32) []const u8 { return make_csi_sequence("B", .{n}); }
+    pub fn CursorForward(n: i32) []const u8 { return make_csi_sequence("C", .{n}); }
+    pub fn CursorBack(n: i32) []const u8 { return make_csi_sequence("D", .{n}); }
+    pub fn CursorNextLine(n: i32) []const u8 { return make_csi_sequence("E", .{n}); }
+    pub fn CursorPrevLine(n: i32) []const u8 { return make_csi_sequence("F", .{n}); }
+    pub fn CursorHorzAbs(n: i32) []const u8 { return make_csi_sequence("G", .{n}); }
+    pub fn CursorPos(n: i32, m: i32) []const u8 { return make_csi_sequence("H", .{n, m}); }
+    pub fn EraseInDisplay(n: i32) []const u8 { return make_csi_sequence("J", .{n}); }
+    pub fn EraseInLine(n: i32) []const u8 { return make_csi_sequence("K", .{n}); }
+    pub fn ScrollUp(n: i32) []const u8 { return make_csi_sequence("S", .{n}); }
+    pub fn ScrollDown(n: i32) []const u8 { return make_csi_sequence("T", .{n}); }
+    pub fn HorzVertPos(n: i32, m: i32) []const u8 { return make_csi_sequence("f", .{n, m}); }
+    pub fn SGR(ns: anytype) []const u8 { return make_csi_sequence("m", ns); }
 };
 
 pub const style = struct {

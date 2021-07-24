@@ -186,6 +186,10 @@ pub const color = struct {
     pub fn Bg(s: Color, comptime m: []const u8) []const u8 {
         return csi.SGR(.{40 + @enumToInt(s)}) ++ m ++ style.ResetBgColor;
     }
+
+    pub fn Faint(comptime m: []const u8) []const u8 {
+        return style.Faint ++ m ++ style.ResetIntensity;
+    }
 };
 
 //

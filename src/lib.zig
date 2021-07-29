@@ -187,8 +187,20 @@ pub const color = struct {
         return csi.SGR(.{40 + @enumToInt(s)}) ++ m ++ style.ResetBgColor;
     }
 
+    pub fn Bold(comptime m: []const u8) []const u8 {
+        return style.Bold ++ m ++ style.ResetIntensity;
+    }
+
     pub fn Faint(comptime m: []const u8) []const u8 {
         return style.Faint ++ m ++ style.ResetIntensity;
+    }
+
+    pub fn Italic(comptime m: []const u8) []const u8 {
+        return style.Italic ++ m ++ style.ResetItalic;
+    }
+
+    pub fn Underline(comptime m: []const u8) []const u8 {
+        return style.Underline ++ m ++ style.ResetUnderline;
     }
 };
 

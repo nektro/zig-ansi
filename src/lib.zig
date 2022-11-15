@@ -53,7 +53,7 @@ pub const escape = struct {
 };
 
 fn make_csi_sequence(comptime c: []const u8, comptime x: anytype) []const u8 {
-    return escape.CSI ++ _join(";", arr_i_to_s(x)) ++ c;
+    return escape.CSI ++ comptime _join(";", arr_i_to_s(x)) ++ c;
 }
 
 fn arr_i_to_s(x: anytype) [][]const u8 {

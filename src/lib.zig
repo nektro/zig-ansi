@@ -58,7 +58,7 @@ fn make_csi_sequence(comptime c: []const u8, comptime x: anytype) []const u8 {
 
 fn arr_i_to_s(x: anytype) [][]const u8 {
     var res: [x.len][]const u8 = undefined;
-    for (x) |item, i| {
+    for (x, 0..) |item, i| {
         res[i] = std.fmt.comptimePrint("{}", .{item});
     }
     return &res;
@@ -210,7 +210,7 @@ pub const color = struct {
 
 fn _join(comptime delim: []const u8, comptime xs: [][]const u8) []const u8 {
     var buf: []const u8 = "";
-    for (xs) |x, i| {
+    for (xs, 0..) |x, i| {
         buf = buf ++ x;
         if (i < xs.len - 1) buf = buf ++ delim;
     }

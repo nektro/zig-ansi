@@ -1,7 +1,6 @@
 const std = @import("std");
-const Builder = std.build.Builder;
 
-pub fn build(b: *Builder) void {
+pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const mode = b.option(std.builtin.Mode, "mode", "") orelse .Debug;
 
@@ -19,6 +18,6 @@ pub fn build(b: *Builder) void {
         run_cmd.addArgs(args);
     }
 
-    const run_step = b.step("test", "Run the app");
+    const run_step = b.step("run", "Run the app");
     run_step.dependOn(&run_cmd.step);
 }

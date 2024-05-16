@@ -1,5 +1,4 @@
 const std = @import("std");
-
 const ansi = @import("./lib.zig");
 
 pub fn main() anyerror!void {

@@ -1,6 +1,6 @@
 const std = @import("std");
 
-pub const ascii = enum(u8) {
+pub const ascii = enum(u7) {
     NUL,
     SOH,
     STX,
@@ -33,9 +33,10 @@ pub const ascii = enum(u8) {
     GS,
     RS,
     US,
+    _,
 
-    pub fn s(self: ascii) []const u8 {
-        return &[_]u8{@intFromEnum(self)};
+    pub fn s(self: ascii) [1]u8 {
+        return .{@intFromEnum(self)};
     }
 };
 
@@ -53,7 +54,7 @@ pub const escape = struct {
 };
 
 fn make_csi_sequence(comptime c: []const u8, comptime x: anytype) []const u8 {
-    return escape.CSI ++ comptime _join(";", arr_i_to_s(x)) ++ c;
+    return comptime escape.CSI ++ _join(";", arr_i_to_s(x)) ++ c;
 }
 
 fn arr_i_to_s(x: anytype) [][]const u8 {

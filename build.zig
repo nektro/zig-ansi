@@ -20,4 +20,16 @@ pub fn build(b: *std.Build) void {
 
     const run_step = b.step("run", "Run the app");
     run_step.dependOn(&run_cmd.step);
+
+    const tests = b.addTest(.{
+        .root_source_file = b.path("src/test.zig"),
+        .target = target,
+        .optimize = mode,
+    });
+
+    const run_test = b.addRunArtifact(tests);
+    run_test.step.dependOn(&tests.step);
+
+    const test_step = b.step("test", "Run the test suite");
+    test_step.dependOn(&run_test.step);
 }

@@ -33,6 +33,7 @@ pub fn build(b: *std.Build) void {
     tests.use_lld = !disable_llvm;
 
     const run_test = b.addRunArtifact(tests);
+    run_test.setCwd(b.path("."));
     run_test.has_side_effects = true;
 
     const test_step = b.step("test", "Run all library tests");

@@ -58,11 +58,13 @@ fn make_csi_sequence(comptime c: []const u8, comptime x: anytype) []const u8 {
 }
 
 fn arr_i_to_s(x: anytype) [][]const u8 {
-    var res: [x.len][]const u8 = undefined;
-    for (x, 0..) |item, i| {
-        res[i] = std.fmt.comptimePrint("{}", .{item});
+    comptime {
+        var res: [x.len][]const u8 = undefined;
+        for (x, 0..) |item, i| {
+            res[i] = std.fmt.comptimePrint("{}", .{item});
+        }
+        return &res;
     }
-    return &res;
 }
 
 pub const csi = struct {

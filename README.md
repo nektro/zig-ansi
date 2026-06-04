@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/github/license/nektro/zig-ansi.svg)](https://github.com/nektro/zig-ansi/blob/master/LICENSE)
 [![discord](https://img.shields.io/discord/551971034593755159.svg?logo=discord)](https://discord.gg/P6Y4zQC)
 [![nektro @ github sponsors](https://img.shields.io/badge/sponsors-nektro-purple?logo=github)](https://github.com/sponsors/nektro)
-[![Zig](https://img.shields.io/badge/Zig-0.14-f7a41d)](https://ziglang.org/)
+[![Zig](https://img.shields.io/badge/Zig-0.16-f7a41d)](https://ziglang.org/)
 [![Zigmod](https://img.shields.io/badge/Zigmod-latest-f7a41d)](https://github.com/nektro/zigmod)
 
 ANSI utilities for CLI usage in Zig.

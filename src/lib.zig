@@ -36,7 +36,7 @@ pub const ascii = enum(u7) {
     _,
 
     pub fn s(self: ascii) [1]u8 {
-        return .{@intFromEnum(self)};
+        return .{@backingInt(self)};
     }
 };
 
@@ -183,11 +183,11 @@ pub const color = struct {
     };
 
     pub fn Fg(s: Color, comptime m: []const u8) []const u8 {
-        return csi.SGR(.{30 + @intFromEnum(s)}) ++ m ++ style.ResetFgColor;
+        return csi.SGR(.{30 + @backingInt(s)}) ++ m ++ style.ResetFgColor;
     }
 
     pub fn Bg(s: Color, comptime m: []const u8) []const u8 {
-        return csi.SGR(.{40 + @intFromEnum(s)}) ++ m ++ style.ResetBgColor;
+        return csi.SGR(.{40 + @backingInt(s)}) ++ m ++ style.ResetBgColor;
     }
 
     pub fn Bold(comptime m: []const u8) []const u8 {
